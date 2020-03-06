@@ -1,0 +1,17 @@
+<form #f="ngForm" (ngSubmit)="login(f.value)" ngNativeValidate>
+    <h1>Login to continue</h1>
+    <fieldset>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required ngModel>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required ngModel>
+    </fieldset>
+    <fieldset *ngIf="message">
+        <p>{{message}}</p>
+    </fieldset>
+    <fieldset>
+        <button>Login</button>
+    </fieldset>
+</form>

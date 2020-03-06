@@ -1,0 +1,26 @@
+<form #f="ngForm" (ngSubmit)="onRespond(f)" ngNativeValidate>
+    <h1>Survey Questions</h1>
+    <div *ngIf="quizzes && !responseSubmitted">
+        <article *ngFor="let quiz of quizzes;index as i;" class="question">
+            <span class="quiz"><span>{{i + 1}}. </span>{{quiz.question}}</span>
+            <div class="emoji-container">
+                <img src="../assets/happy.svg" alt="Happy" title="Happy" (click)="react(quiz.id, 'happy')" class="emoji"
+                    [ngClass]="{ 'selected-emoji': isSelected(quiz.id, 'happy') }"
+                    style="border-color: #006400 !important;">
+                <img src="../assets/satisfied.svg" alt="Satisfied" title="Satisfied" class="emoji"
+                    (click)="react(quiz.id, 'satisfied')"
+                    [ngClass]="{ 'selected-emoji': isSelected(quiz.id, 'satisfied') }"
+                    style="border-color: blue !important;">
+                <img src="../assets/sad.svg" alt="Sad" title="Sad" class="emoji" (click)="react(quiz.id, 'sad')"
+                    [ngClass]="{ 'selected-emoji': isSelected(quiz.id, 'sad') }" style="border-color: red !important;">
+            </div>
+        </article>
+    </div>
+    <fieldset *ngIf="!responseSubmitted">
+        <button>Submit</button>
+    </fieldset>
+    <div *ngIf="responseSubmitted">
+        <h1>Thank you for your feedback</h1>
+        <button (click)="again()">Submit another</button>
+    </div>
+</form>

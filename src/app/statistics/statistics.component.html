@@ -1,0 +1,30 @@
+<main>
+    <div class="center">
+        <h1><a routerLink="/create">Create Questions</a></h1>
+    </div>
+    <p *ngIf="message">{{message}}</p>
+    <table *ngIf="quizzes">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Happy</th>
+                <th>Satisfied</th>
+                <th>Sad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let q of quizzes">
+                <td>{{q.question}}</td>
+                <td>{{q.happy | number}}</td>
+                <td>{{q.satisfied | number}}</td>
+                <td>{{q.sad | number}}</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td></td>
+                <td>{{totals?.happy | number}}({{totals?.happy/ accoumulated | percent}})</td>
+                <td>{{totals?.satisfied | number}}({{totals?.satisfied/ accoumulated | percent}})</td>
+                <td>{{totals?.sad | number}}({{totals?.sad/ accoumulated | percent}})</td>
+            </tr>
+        </tbody>
+    </table>
+</main>

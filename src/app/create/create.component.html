@@ -1,0 +1,23 @@
+<main>
+    <div>
+        <form #f="ngForm" (ngSubmit)="add(f)">
+            <div>
+                <h1>Create Survey Questions</h1>
+                <h1><a routerLink="/statistics" title="View Previous Questions">View Questions</a></h1>
+            </div>
+            <fieldset>
+                <label for="question">Enter a survey question</label>
+                <textarea name="question" id="question" required ngModel></textarea>
+            </fieldset>
+            <fieldset>
+                <button>Add to list</button>
+            </fieldset>
+        </form>
+        <div>
+            <button [disabled]="quizzes.length === 0" (click)="save()">Save</button>
+        </div>
+        <div *ngIf="quizzes.length > 0">
+            <p *ngFor="let q of quizzes">{{q.question}} <button (click)="remove(q)">Remove</button></p>
+        </div>
+    </div>
+</main>
