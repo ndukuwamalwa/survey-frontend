@@ -11,6 +11,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { FormsModule } from '@angular/forms';
 import { QuizService } from './quiz.service';
 import { AuthGuard } from './auth.guard';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthGuard } from './auth.guard';
     HomeComponent,
     LoginComponent,
     CreateComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
