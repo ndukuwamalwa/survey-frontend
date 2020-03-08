@@ -1,0 +1,52 @@
+form {
+    & > div {
+        &:first-child {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+#buts {
+    display: inline !important;
+
+    button {
+        &:last-child {
+            float: right;
+        }
+    }
+}
+
+#questions {
+    padding: 10px;
+    background-color: #fff;
+
+    article {
+        border-bottom: thin solid #e7e7e7;
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 15px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                cursor: pointer;
+                padding: 10px 15px;
+
+                &:first-child {
+                    color: blue;
+                }
+
+                &:last-child {
+                    color: red;
+                }
+            }
+        }
+    }
+}
