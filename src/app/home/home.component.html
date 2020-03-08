@@ -1,5 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onRespond(f)" ngNativeValidate>
     <h1>Survey Questions</h1>
+    <app-loader *ngIf="isLoading"></app-loader>
     <div *ngIf="quizzes && !responseSubmitted">
         <article *ngFor="let quiz of quizzes;index as i;" class="question">
             <span class="quiz"><span>{{i + 1}}. </span>{{quiz.question}}</span>
@@ -17,7 +18,7 @@
         </article>
     </div>
     <fieldset *ngIf="!responseSubmitted">
-        <button>Submit</button>
+        <button [disabled]="isLoading">Submit</button>
     </fieldset>
     <div *ngIf="responseSubmitted">
         <h1>Thank you for your feedback</h1>

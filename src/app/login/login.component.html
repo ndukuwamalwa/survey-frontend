@@ -2,7 +2,7 @@
     <h1>Login to continue</h1>
     <fieldset>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" required ngModel>
+        <input type="text" name="username" id="username" required ngModel autocomplete="off">
     </fieldset>
     <fieldset>
         <label for="password">Password</label>
@@ -12,6 +12,6 @@
         <p>{{message}}</p>
     </fieldset>
     <fieldset>
-        <button>Login</button>
+        <button [disabled]="isLoading">Login</button>
     </fieldset>
 </form>

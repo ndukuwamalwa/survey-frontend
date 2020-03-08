@@ -45,9 +45,9 @@ export class StatisticsComponent implements OnInit {
       satisfieds.push(q.satisfied);
     });
     this.totals = {
-      happy: happies.reduce((a, b) => a + b),
-      sad: sads.reduce((a, b) => a + b),
-      satisfied: satisfieds.reduce((a, b) => a + b)
+      happy: happies.length > 0 ? happies.reduce((a, b) => a + b) : 0,
+      sad: sads.length > 0 ? sads.reduce((a, b) => a + b) : 0,
+      satisfied: satisfieds.length > 0 ? satisfieds.reduce((a, b) => a + b) : 0
     };
     this.accoumulated = this.totals.happy + this.totals.sad + this.totals.satisfied;
   }

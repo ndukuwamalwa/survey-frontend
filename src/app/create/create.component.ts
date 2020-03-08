@@ -13,6 +13,7 @@ export class CreateComponent implements OnInit {
   quizzes: Quiz[] = [];
   isLoading = false;
   message: string;
+  question = '';
 
   constructor(
     private quizService: QuizService,
@@ -24,7 +25,7 @@ export class CreateComponent implements OnInit {
 
   add(form: NgForm) {
     const question: string = form.value.question;
-    if (question.trim().length === 0) {
+    if (!question || question.trim().length === 0) {
       return;
     }
     const exists = this.quizzes.find(q => q.question.toLowerCase() === question.toLowerCase());
@@ -48,17 +49,22 @@ export class CreateComponent implements OnInit {
   save() {
     this.isLoading = true;
     this.quizService.save(this.quizzes)
-    .subscribe({
-      next: (res) => {
-        this.isLoading = false;
-        this.quizzes = [];
-        this.router.navigate(['statistics']);
-      },
-      error: (e) => {
-        this.isLoading = false;
-        this.message = 'Problem saving questions.'
-      }
-    });
+      .subscribe({
+        next: (res) => {
+          this.isLoading = false;
+          this.quizzes = [];
+          this.router.navigate(['statistics']);
+        },
+        error: (e) => {
+          this.isLoading = false;
+          this.message = 'Problem saving questions.';
+        }
+      });
+  }
+
+  edit(question: Quiz) {
+    this.question = question.question;
+    this.remove(question);
   }
 
 }

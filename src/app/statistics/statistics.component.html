@@ -3,6 +3,7 @@
         <h1><a routerLink="/create">Create Questions</a></h1>
     </div>
     <p *ngIf="message">{{message}}</p>
+    <app-loader *ngIf="isLoading"></app-loader>
     <table *ngIf="quizzes">
         <thead>
             <tr>
@@ -21,9 +22,9 @@
             </tr>
             <tr style="font-weight: bold;">
                 <td></td>
-                <td>{{totals?.happy | number}}({{totals?.happy/ accoumulated | percent}})</td>
-                <td>{{totals?.satisfied | number}}({{totals?.satisfied/ accoumulated | percent}})</td>
-                <td>{{totals?.sad | number}}({{totals?.sad/ accoumulated | percent}})</td>
+                <td style="color: green;">{{totals?.happy | number}} ({{totals?.happy/ accoumulated | percent}})</td>
+                <td style="color: blue;">{{totals?.satisfied | number}} ({{totals?.satisfied/ accoumulated | percent}})</td>
+                <td style="color: red;">{{totals?.sad | number}} ({{totals?.sad/ accoumulated | percent}})</td>
             </tr>
         </tbody>
     </table>

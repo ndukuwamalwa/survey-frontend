@@ -7,17 +7,21 @@
             </div>
             <fieldset>
                 <label for="question">Enter a survey question</label>
-                <textarea name="question" id="question" required ngModel></textarea>
+                <textarea name="question" id="question" required [(ngModel)]="question"></textarea>
             </fieldset>
-            <fieldset>
+            <fieldset id="buts">
                 <button>Add to list</button>
+                <button [disabled]="quizzes.length === 0 || isLoading" (click)="save()">Save</button>
             </fieldset>
         </form>
-        <div>
-            <button [disabled]="quizzes.length === 0" (click)="save()">Save</button>
-        </div>
-        <div *ngIf="quizzes.length > 0">
-            <p *ngFor="let q of quizzes">{{q.question}} <button (click)="remove(q)">Remove</button></p>
+        <div *ngIf="quizzes.length > 0" id="questions">
+            <article *ngFor="let q of quizzes">
+                <p>{{q.question}}</p>
+                <div>
+                    <span (click)="edit(q)">Edit</span>
+                    <span (click)="remove(q)">Remove</span>
+                </div>
+            </article>
         </div>
     </div>
 </main>

@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
   }
 
   onRespond(f: NgForm) {
+    if (this.reacted.length === 0) {
+      return;
+    }
     this.isLoading = true;
     this.quizService.respond(this.reacted)
     .subscribe({
