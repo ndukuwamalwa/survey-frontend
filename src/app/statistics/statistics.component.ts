@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../quiz.service';
 import { Quiz } from '../quiz.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-statistics',
@@ -15,7 +16,8 @@ export class StatisticsComponent implements OnInit {
   accoumulated: number;
 
   constructor(
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +52,10 @@ export class StatisticsComponent implements OnInit {
       satisfied: satisfieds.length > 0 ? satisfieds.reduce((a, b) => a + b) : 0
     };
     this.accoumulated = this.totals.happy + this.totals.sad + this.totals.satisfied;
+  }
+
+  edit(q: Quiz) {
+    this.router.navigateByUrl(`/edit?id=${q.id}&q=${q.question}`);
   }
 
 }

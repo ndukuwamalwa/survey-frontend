@@ -1,0 +1,14 @@
+td, th {
+    font-size: 18px;
+}
+
+.q-actions {
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 300ms;
+
+    &:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+}

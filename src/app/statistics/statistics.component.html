@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let q of quizzes">
-                <td>{{q.question}}</td>
+                <td (click)="edit(q)" class="q-actions" title="Click to edit/delete">{{q.question}}</td>
                 <td>{{q.happy | number}}</td>
                 <td>{{q.satisfied | number}}</td>
                 <td>{{q.sad | number}}</td>
