@@ -9,14 +9,14 @@ import { environment } from 'src/environments/environment';
 })
 export class QuizService {
   api = `${environment.url}`;
-  token = window.sessionStorage.getItem('token');
 
   constructor(
     private http: HttpClient
   ) { }
 
   save(quiz: Quiz[]): Observable<any> {
-    return this.http.post(`${this.api}/questions?token=${this.token}`, quiz);
+    const token = window.sessionStorage.getItem('token');
+    return this.http.post(`${this.api}/questions?token=${token}`, quiz);
   }
 
   respond(responses: Quiz[]): Observable<any> {
@@ -32,10 +32,12 @@ export class QuizService {
   }
 
   update(id: number, question: string): Observable<any> {
-    return this.http.put(`${this.api}/questions?token=${this.token}`, { id, question });
+    const token = window.sessionStorage.getItem('token');
+    return this.http.put(`${this.api}/questions?token=${token}`, { id, question });
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${this.api}/questions?token=${this.token}&id=${id}`);
+    const token = window.sessionStorage.getItem('token');
+    return this.http.delete(`${this.api}/questions?token=${token}&id=${id}`);
   }
 }
