@@ -1,5 +1,5 @@
 <form #f="ngForm" (ngSubmit)="onRespond(f)" ngNativeValidate>
-    <h1>Survey Questions</h1>
+    <h1>Turnquest Survey Questions</h1>
     <app-loader *ngIf="isLoading"></app-loader>
     <div *ngIf="quizzes && !responseSubmitted">
         <article *ngFor="let quiz of quizzes;index as i;" class="question">
