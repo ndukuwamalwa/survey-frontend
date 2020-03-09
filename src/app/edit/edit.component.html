@@ -1,0 +1,12 @@
+<form ngNativeValidate>
+    <h1><a routerLink="/statistics">Back</a></h1>
+    <fieldset>
+        <label for="question">Question</label>
+        <textarea name="question" id="question" required [(ngModel)]="question"></textarea>
+    </fieldset>
+    <fieldset style="display: inline;">
+        <button [disabled]="isLoading" (click)="save()">Update</button>
+        <button (click)="delete()" style="background-color: red; border-color: red; float: right;"
+            [disabled]="isLoading">Delete</button>
+    </fieldset>
+</form>

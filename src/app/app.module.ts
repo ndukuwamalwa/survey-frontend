@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { QuizService } from './quiz.service';
 import { AuthGuard } from './auth.guard';
 import { LoaderComponent } from './loader/loader.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoaderComponent } from './loader/loader.component';
     LoginComponent,
     CreateComponent,
     StatisticsComponent,
-    LoaderComponent
+    LoaderComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,11 @@ import { LoaderComponent } from './loader/loader.component';
       {
         path: 'statistics',
         component: StatisticsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'edit',
+        component: EditComponent,
         canActivate: [AuthGuard]
       }
     ]),
