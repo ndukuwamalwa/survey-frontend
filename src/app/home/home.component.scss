@@ -1,0 +1,22 @@
+#key {
+    background-color: #e7e7e7;
+    padding: 10px;
+    border-radius: 5px;
+    & > span {
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    & > div {
+        display: flex;
+        margin-top: 15px;
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+}

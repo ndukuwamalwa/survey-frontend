@@ -2,13 +2,33 @@
     <h1>Turnquest Survey Questions</h1>
     <app-loader *ngIf="isLoading"></app-loader>
     <div *ngIf="quizzes && !responseSubmitted">
+        <article id="key">
+            <span>Key</span>
+            <div>
+                <div>
+                    <img src="../assets/happy.svg" alt="Happy" title="Happy" class="emoji"
+                        style="border-color: #006400 !important;">
+                    <span style="color: #006400;">Happy</span>
+                </div>
+                <div>
+                    <img src="../assets/satisfied.svg" alt="Neutral" title="Neutral" class="emoji"
+                        style="border-color: blue !important;">
+                    <span style="color: rgb(0, 153, 255);">Neutral</span>
+                </div>
+                <div>
+                    <img src="../assets/sad.svg" alt="Sad" title="Sad" class="emoji"
+                        style="border-color: red !important;">
+                    <span style="color: rgb(255, 21, 0);">Sad</span>
+                </div>
+            </div>
+        </article>
         <article *ngFor="let quiz of quizzes;index as i;" class="question">
             <span class="quiz"><span>{{i + 1}}. </span>{{quiz.question}}</span>
             <div class="emoji-container">
                 <img src="../assets/happy.svg" alt="Happy" title="Happy" (click)="react(quiz.id, 'happy')" class="emoji"
                     [ngClass]="{ 'selected-emoji': isSelected(quiz.id, 'happy') }"
                     style="border-color: #006400 !important;">
-                <img src="../assets/satisfied.svg" alt="Satisfied" title="Satisfied" class="emoji"
+                <img src="../assets/satisfied.svg" alt="Neutral" title="Neutral" class="emoji"
                     (click)="react(quiz.id, 'satisfied')"
                     [ngClass]="{ 'selected-emoji': isSelected(quiz.id, 'satisfied') }"
                     style="border-color: blue !important;">
