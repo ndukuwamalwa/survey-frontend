@@ -52,6 +52,10 @@ input[type=password] {
     border: thin solid #b4b4b4;
 }
 
+input:invalid, select:invalid {
+    box-shadow: none;
+}
+
 textarea {
     min-width: 100%;
     max-width: 100%;
